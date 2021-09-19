@@ -36,8 +36,11 @@ class TournamentTest extends TestCase
      */
     public function testSwordsmanWithBucklerVsVikingWithBuckler(): void
     {
-        $swordsman = (new Swordsman())->equip("buckler");
-        $viking = (new Viking())->equip("buckler");
+        $swordsman = new Swordsman();
+        $swordsman->equip("buckler");
+
+        $viking = new Viking();
+        $viking->equip("buckler");
 
         $swordsman->engage($viking);
 
@@ -53,9 +56,10 @@ class TournamentTest extends TestCase
     public function testArmoredSwordsmanVsViking(): void
     {
         $highlander = new Highlander();
-        $swordsman = (new Swordsman())
-            ->equip("buckler")
-            ->equip("armor");
+
+        $swordsman = new Swordsman();
+        $swordsman->equip("buckler");
+        $swordsman->equip("armor");
 
         $swordsman->engage($highlander);
 
@@ -71,10 +75,10 @@ class TournamentTest extends TestCase
      */
     public function testViciousSwordsmanVsVeteranHighlander(): void
     {
-        $swordsman = (new Swordsman("Vicious"))
-            ->equip("axe")
-            ->equip("buckler")
-            ->equip("armor");
+        $swordsman = new Swordsman("Vicious");
+        $swordsman->equip("axe");
+        $swordsman->equip("buckler");
+        $swordsman->equip("armor");;
 
         $highlander = new Highlander("Veteran");
 
